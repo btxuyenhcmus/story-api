@@ -1,0 +1,9 @@
+FROM golang:1.19-alpine
+
+RUN mkdir /app
+
+ADD . /app
+
+WORKDIR /app
+
+CMD ["go", "run", "/app/cmd/main.go"]
