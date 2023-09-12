@@ -2,7 +2,7 @@
 
 A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authentication Middleware, Test, and Docker.
 
-![Go Backend ReadTruyen API](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-backend-clean-architecture.png?raw=true)
+![Go Backend ReadTruyen API](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-backend-clean-architecture.png?raw=true)
 
 **You can use this project as a template to build your Backend project in the Go language on top of this project.**
 
@@ -14,7 +14,7 @@ A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authenti
 - Repository
 - Domain
 
-![Go Backend ReadTruyen API Diagram](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-backend-arch-diagram.png?raw=true)
+![Go Backend ReadTruyen API Diagram](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-backend-arch-diagram.png?raw=true)
 
 ## Major Packages used in this project
 
@@ -29,13 +29,13 @@ A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authenti
 
 ### Public API Request Flow without JWT Authentication Middleware
 
-![Public API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-arch-public-api-request-flow.png?raw=true)
+![Public API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-arch-public-api-request-flow.png?raw=true)
 
 ### Private API Request Flow with JWT Authentication Middleware
 
 > JWT Authentication Middleware for Access Token Validation.
 
-![Private API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-arch-private-api-request-flow.png?raw=true)
+![Private API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-arch-private-api-request-flow.png?raw=true)
 
 ### How to run this project?
 
