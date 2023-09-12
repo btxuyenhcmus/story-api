@@ -3,10 +3,11 @@ package route
 import (
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"readtruyen-api/api/middleware"
 	"readtruyen-api/bootstrap"
 	"readtruyen-api/mongo"
+
+	"github.com/gin-gonic/gin"
 )
 
 func Setup(env *bootstrap.Env, timeout time.Duration, db mongo.Database, gin *gin.Engine) {
@@ -15,6 +16,7 @@ func Setup(env *bootstrap.Env, timeout time.Duration, db mongo.Database, gin *gi
 	NewSignupRouter(env, timeout, db, publicRouter)
 	NewLoginRouter(env, timeout, db, publicRouter)
 	NewRefreshTokenRouter(env, timeout, db, publicRouter)
+	NewStoryRouter(env, timeout, db, publicRouter)
 
 	protectedRouter := gin.Group("")
 	// Middleware to verify AccessToken
