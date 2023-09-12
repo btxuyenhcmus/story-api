@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"readtruyen-api/domain"
-	"readtruyen-api/mongo"
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/mongo"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

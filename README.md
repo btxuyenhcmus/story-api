@@ -1,27 +1,10 @@
-# Go Backend Clean Architecture
+# Go Backend ReadTruyen API
 
 A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authentication Middleware, Test, and Docker.
 
-![Go Backend Clean Architecture](https://readtruyen-api/blob/main/assets/go-backend-clean-architecture.png?raw=true)
+![Go Backend ReadTruyen API](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-backend-clean-architecture.png?raw=true)
 
 **You can use this project as a template to build your Backend project in the Go language on top of this project.**
-
-Before creating this project, I have gone through more than 20 projects related to the Go(Golang) Clean Architecture on GitHub.
-
-Thanks to all those projects, I learned a lot from all of those. As I keep saying:
-
-> The best way to learn to code is to code. But, to write good code, you will also have to read good code. Make a habit of reading good code. You can find many open-source projects on GitHub and start reading.
-
-Then for the implementation part, I combined all of my ideas, experiences, and learnings from those projects to create this project.
-
-And as always I would love to get feedback on my project. This helps everyone and most importantly me.
-
-Learn about this project architecture in detail from the blogs mentioned below:
-
-- [Go Backend Clean Architecture](https://amitshekhar.me/blog/go-backend-clean-architecture)
-- [Go JWT Authentication Middleware](https://amitshekhar.me/blog/go-jwt-authentication-middleware)
-- [Configuration with Viper in Go](https://amitshekhar.me/blog/configuration-with-viper-in-go)
-- [Test with Testify and Mockery in Go](https://amitshekhar.me/blog/test-with-testify-and-mockery-in-go)
 
 ## Architecture Layers of the project
 
@@ -31,27 +14,7 @@ Learn about this project architecture in detail from the blogs mentioned below:
 - Repository
 - Domain
 
-![Go Backend Clean Architecture Diagram](https://readtruyen-api/blob/main/assets/go-backend-arch-diagram.png?raw=true)
-
-## About me
-
-Hi, I am [**Amit Shekhar**](https://amitshekhar.me), I have mentored many developers, and their efforts landed them high-paying tech jobs, helped many tech companies in solving their unique problems, and created many open-source libraries being used by top companies. I am passionate about sharing knowledge through open-source, blogs, and videos.
-
-You can connect with me on:
-
-- [Twitter](https://twitter.com/amitiitbhu)
-- [YouTube](https://www.youtube.com/@amitshekhar)
-- [LinkedIn](https://www.linkedin.com/in/amit-shekhar-iitbhu)
-- [GitHub](https://github.com/amitshekhariitbhu)
-
-## System Design Playlist on YouTube
-
-- [What is System Design?](https://www.youtube.com/watch?v=i4YWRY3hsdA)
-- [Twitter Timeline Design with Fanout Approach - System Design](https://www.youtube.com/watch?v=_7qHGfwgPz0)
-- [HTTP Request vs HTTP Long-Polling vs WebSocket vs Server-Sent Events](https://www.youtube.com/watch?v=8ksWRX4xV-s)
-- [YouTube Video Upload Service - System Design](https://www.youtube.com/watch?v=N0vvJTkokZc)
-- [What is Consistent Hashing?](https://www.youtube.com/watch?v=dV5cIm9T3ss)
-- [Capacity Estimation: Back-of-the-envelope calculation - Twitter](https://www.youtube.com/watch?v=yrbKxzXm6_Q)
+![Go Backend ReadTruyen API Diagram](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-backend-arch-diagram.png?raw=true)
 
 ## Major Packages used in this project
 
@@ -66,17 +29,17 @@ You can connect with me on:
 
 ### Public API Request Flow without JWT Authentication Middleware
 
-![Public API Request Flow](https://readtruyen-api/blob/main/assets/go-arch-public-api-request-flow.png?raw=true)
+![Public API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-arch-public-api-request-flow.png?raw=true)
 
 ### Private API Request Flow with JWT Authentication Middleware
 
 > JWT Authentication Middleware for Access Token Validation.
 
-![Private API Request Flow](https://readtruyen-api/blob/main/assets/go-arch-private-api-request-flow.png?raw=true)
+![Private API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/main/assets/go-arch-private-api-request-flow.png?raw=true)
 
 ### How to run this project?
 
-We can run this Go Backend Clean Architecture project with or without Docker. Here, I am providing both ways to run this project.
+We can run this Go Backend ReadTruyen API project with or without Docker. Here, I am providing both ways to run this project.
 
 - Clone this project
 
@@ -85,10 +48,10 @@ We can run this Go Backend Clean Architecture project with or without Docker. He
 cd your-workspace
 
 # Clone this project into your workspace
-git clone https://readtruyen-api.git
+git clone https://github.com/readtruyen/go-novelstory-api.git
 
 # Move to the project root directory
-cd go-backend-clean-architecture
+cd go-novelstory-api
 ```
 
 #### Run without Docker
@@ -187,11 +150,7 @@ Whenever you make changes in the interfaces of these use-cases, repositories, or
     └── task_usecase_test.go
 ```
 
-### API documentation of Go Backend Clean Architecture
-
-<a href="https://documenter.getpostman.com/view/391588/2s8Z75S9xy" target="_blank">
-    <img alt="View API Doc Button" src="https://readtruyen-api/blob/main/assets/button-view-api-docs.png?raw=true" width="200" height="60"/>
-</a>
+### API documentation of Go Backend ReadTruyen API
 
 ### Example API Request and Response
 
@@ -312,32 +271,6 @@ Whenever you make changes in the interfaces of these use-cases, repositories, or
   }
   ```
 
-### TODO
-
-- Improvement based on feedback.
-- Add more test cases.
-- Always try to update with the latest version of the packages used.
-
-## If this project helps you in anyway, show your love ❤️ by putting a ⭐ on this project ✌️
-
 ### License
 
-```
-   Copyright (C) 2023 Amit Shekhar
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-```
-
-### Contributing to Go Backend Clean Architecture
-
-All pull requests are welcome.
+### Contributing to Go Backend ReadTruyen API

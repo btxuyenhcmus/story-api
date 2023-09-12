@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	mongo "readtruyen-api/mongo"
+	mongo "github.com/readtruyen/go-novelstory-api/mongo"
 	mock "github.com/stretchr/testify/mock"
 
 	mongo_drivermongo "go.mongodb.org/mongo-driver/mongo"

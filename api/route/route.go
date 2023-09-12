@@ -3,9 +3,9 @@ package route
 import (
 	"time"
 
-	"readtruyen-api/api/middleware"
-	"readtruyen-api/bootstrap"
-	"readtruyen-api/mongo"
+	"github.com/readtruyen/go-novelstory-api/api/middleware"
+	"github.com/readtruyen/go-novelstory-api/bootstrap"
+	"github.com/readtruyen/go-novelstory-api/mongo"
 
 	"github.com/gin-gonic/gin"
 )

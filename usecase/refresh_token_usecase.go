@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"readtruyen-api/domain"
-	"readtruyen-api/internal/tokenutil"
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/internal/tokenutil"
 )
 
 type refreshTokenUsecase struct {

@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	route "readtruyen-api/api/route"
-	"readtruyen-api/bootstrap"
+	route "github.com/readtruyen/go-novelstory-api/api/route"
+	"github.com/readtruyen/go-novelstory-api/bootstrap"
 )
 
 func main() {

@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	mongo "readtruyen-api/mongo"
+	mongo "github.com/readtruyen/go-novelstory-api/mongo"
 	mock "github.com/stretchr/testify/mock"
 )
 

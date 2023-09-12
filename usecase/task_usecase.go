@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"readtruyen-api/domain"
+	"github.com/readtruyen/go-novelstory-api/domain"
 )
 
 type taskUsecase struct {

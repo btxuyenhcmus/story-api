@@ -6,8 +6,8 @@ import (
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/gin-gonic/gin"
-	"readtruyen-api/bootstrap"
-	"readtruyen-api/domain"
+	"github.com/readtruyen/go-novelstory-api/bootstrap"
+	"github.com/readtruyen/go-novelstory-api/domain"
 )
 
 type LoginController struct {

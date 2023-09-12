@@ -1,6 +1,6 @@
 package bootstrap
 
-import "readtruyen-api/mongo"
+import "github.com/readtruyen/go-novelstory-api/mongo"
 
 type Application struct {
 	Env   *Env

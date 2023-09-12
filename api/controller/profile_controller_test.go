@@ -8,12 +8,12 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
+	"github.com/readtruyen/go-novelstory-api/api/controller"
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/domain/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"readtruyen-api/api/controller"
-	"readtruyen-api/domain"
-	"readtruyen-api/domain/mocks"
 )
 
 func setUserID(userID string) gin.HandlerFunc {

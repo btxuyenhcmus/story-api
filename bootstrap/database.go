@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"readtruyen-api/mongo"
+	"github.com/readtruyen/go-novelstory-api/mongo"
 )
 
 func NewMongoDatabase(env *Env) mongo.Client {

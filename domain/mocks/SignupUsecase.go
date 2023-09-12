@@ -5,7 +5,7 @@ package mocks
 import (
 	context "context"
 
-	domain "readtruyen-api/domain"
+	domain "github.com/readtruyen/go-novelstory-api/domain"
 	mock "github.com/stretchr/testify/mock"
 )
 

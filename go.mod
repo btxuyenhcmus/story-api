@@ -1,4 +1,4 @@
-module readtruyen-api
+module github.com/readtruyen/go-novelstory-api
 
 go 1.19
 

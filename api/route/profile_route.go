@@ -3,12 +3,12 @@ package route
 import (
 	"time"
 
-	"readtruyen-api/api/controller"
-	"readtruyen-api/bootstrap"
-	"readtruyen-api/domain"
-	"readtruyen-api/mongo"
-	"readtruyen-api/repository"
-	"readtruyen-api/usecase"
+	"github.com/readtruyen/go-novelstory-api/api/controller"
+	"github.com/readtruyen/go-novelstory-api/bootstrap"
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/mongo"
+	"github.com/readtruyen/go-novelstory-api/repository"
+	"github.com/readtruyen/go-novelstory-api/usecase"
 
 	"github.com/gin-gonic/gin"
 )

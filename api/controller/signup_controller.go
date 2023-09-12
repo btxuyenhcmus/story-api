@@ -3,8 +3,8 @@ package controller
 import (
 	"net/http"
 
-	"readtruyen-api/bootstrap"
-	"readtruyen-api/domain"
+	"github.com/readtruyen/go-novelstory-api/bootstrap"
+	"github.com/readtruyen/go-novelstory-api/domain"
 
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson/primitive"

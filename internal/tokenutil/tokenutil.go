@@ -5,7 +5,7 @@ import (
 	"time"
 
 	jwt "github.com/golang-jwt/jwt/v4"
-	"readtruyen-api/domain"
+	"github.com/readtruyen/go-novelstory-api/domain"
 )
 
 func CreateAccessToken(user *domain.User, secret string, expiry int) (accessToken string, err error) {

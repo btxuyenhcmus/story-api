@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/readtruyen/go-novelstory-api/domain"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"readtruyen-api/domain"
 )
 
 type TaskController struct {

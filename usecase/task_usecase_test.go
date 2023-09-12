@@ -6,12 +6,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/domain/mocks"
+	"github.com/readtruyen/go-novelstory-api/usecase"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"readtruyen-api/domain"
-	"readtruyen-api/domain/mocks"
-	"readtruyen-api/usecase"
 )
 
 func TestFetchByUserID(t *testing.T) {

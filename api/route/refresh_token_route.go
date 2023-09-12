@@ -4,12 +4,12 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"readtruyen-api/api/controller"
-	"readtruyen-api/bootstrap"
-	"readtruyen-api/domain"
-	"readtruyen-api/mongo"
-	"readtruyen-api/repository"
-	"readtruyen-api/usecase"
+	"github.com/readtruyen/go-novelstory-api/api/controller"
+	"github.com/readtruyen/go-novelstory-api/bootstrap"
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/mongo"
+	"github.com/readtruyen/go-novelstory-api/repository"
+	"github.com/readtruyen/go-novelstory-api/usecase"
 )
 
 func NewRefreshTokenRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Database, group *gin.RouterGroup) {

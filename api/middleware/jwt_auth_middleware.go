@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"readtruyen-api/domain"
-	"readtruyen-api/internal/tokenutil"
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/internal/tokenutil"
 )
 
 func JwtAuthMiddleware(secret string) gin.HandlerFunc {

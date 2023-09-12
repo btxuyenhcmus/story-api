@@ -3,7 +3,7 @@ package controller
 import (
 	"net/http"
 
-	"readtruyen-api/domain"
+	"github.com/readtruyen/go-novelstory-api/domain"
 
 	"github.com/gin-gonic/gin"
 )

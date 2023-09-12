@@ -5,12 +5,12 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/readtruyen/go-novelstory-api/domain"
+	"github.com/readtruyen/go-novelstory-api/mongo/mocks"
+	"github.com/readtruyen/go-novelstory-api/repository"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"readtruyen-api/domain"
-	"readtruyen-api/mongo/mocks"
-	"readtruyen-api/repository"
 )
 
 func TestCreate(t *testing.T) {
