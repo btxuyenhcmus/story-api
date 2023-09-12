@@ -2,6 +2,7 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/readtruyen/go-novelstory-api/domain"
 
@@ -36,16 +37,32 @@ func (sc *StoryController) Create(c *gin.Context) {
 }
 
 func (sc *StoryController) FetchList(c *gin.Context) {
-	stories, err := sc.StoryUseCase.GetStories(c)
+	pageStr := c.Query("page")
+	perPageStr := c.Query("per_page")
+
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page <= 0 {
+		page = 1
+	}
+
+	perPage, err := strconv.Atoi(perPageStr)
+	if err != nil || page <= 0 || page >= 100 {
+		perPage = 10
+	}
+
+	stories, pagination, err := sc.StoryUseCase.GetStoriesPagination(c, page, perPage)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
 		return
 	}
 
-	c.JSON(http.StatusOK, domain.StorySuccessResponse{
+	c.JSON(http.StatusOK, domain.StoryListResponse{
 		Status:  http.StatusOK,
 		Message: "Get list story successfully",
 		Data:    stories,
+		Meta: domain.Meta{
+			Pagination: pagination,
+		},
 	})
 }
 
@@ -57,7 +74,7 @@ func (sc *StoryController) FetchByStoryID(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, domain.StorySuccessResponse{
+	c.JSON(http.StatusOK, domain.StoryDetailResponse{
 		Status:  http.StatusOK,
 		Message: "Get detail successfully",
 		Data:    story,

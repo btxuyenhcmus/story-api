@@ -31,6 +31,12 @@ func (su *storyUseCase) GetStories(c context.Context) ([]domain.ShortResponseSto
 	return su.storyRepository.GetStories(ctx)
 }
 
+func (su *storyUseCase) GetStoriesPagination(c context.Context, page int, perPage int) ([]domain.ShortResponseStory, domain.Pagination, error) {
+	ctx, cancel := context.WithTimeout(c, su.contextTimeout)
+	defer cancel()
+	return su.storyRepository.GetStoriesPagination(ctx, page, perPage)
+}
+
 func (su *storyUseCase) GetStoryById(c context.Context, storyID string) (domain.Story, error) {
 	ctx, cancel := context.WithTimeout(c, su.contextTimeout)
 	defer cancel()

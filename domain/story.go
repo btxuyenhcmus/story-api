@@ -45,6 +45,7 @@ type StoryRepository interface {
 	Create(c context.Context, story *Story) error
 	Update(c context.Context, storyID string, updateStory *UpdateStory) error
 	GetStories(c context.Context) ([]ShortResponseStory, error)
+	GetStoriesPagination(c context.Context, page int, perPage int) ([]ShortResponseStory, Pagination, error)
 	GetStoryById(c context.Context, storyID string) (Story, error)
 	DeleteStoryByID(c context.Context, storyID string) error
 }
@@ -52,5 +53,6 @@ type StoryRepository interface {
 type StoryUseCase interface {
 	Create(c context.Context, story *Story) error
 	GetStories(c context.Context) ([]ShortResponseStory, error)
+	GetStoriesPagination(c context.Context, page int, perPage int) ([]ShortResponseStory, Pagination, error)
 	GetStoryById(c context.Context, storyID string) (Story, error)
 }

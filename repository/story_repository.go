@@ -58,6 +58,42 @@ func (sr *storyRepository) GetStories(c context.Context) ([]domain.ShortResponse
 	return stories, err
 }
 
+func (sr *storyRepository) GetStoriesPagination(c context.Context, page int, perPage int) ([]domain.ShortResponseStory, domain.Pagination, error) {
+	collection := sr.database.Collection(sr.collection)
+
+	var stories []domain.ShortResponseStory
+
+	skip := (page - 1) * perPage
+
+	cursor, err := collection.Aggregate(c, []bson.M{
+		{"$skip": skip},
+		{"$limit": perPage},
+	})
+	if err != nil {
+		return nil, domain.Pagination{}, err
+	}
+
+	for cursor.Next(c) {
+		var items domain.ShortResponseStory
+		if err := cursor.Decode(&items); err != nil {
+			return nil, domain.Pagination{}, err
+		}
+		stories = append(stories, items)
+	}
+
+	totalCount, err := collection.CountDocuments(c, bson.M{})
+	if err != nil {
+		return nil, domain.Pagination{}, err
+	}
+
+	totalPages := totalCount / int64(perPage)
+	if totalPages%int64(perPage) > 0 {
+		totalPages++
+	}
+
+	return stories, domain.Pagination{TotalPages: int(totalPages), CurrentPage: page, Total: int(totalCount), PerPage: perPage, Count: len(stories), Next: page + 1}, err
+}
+
 func (sr *storyRepository) GetStoryById(c context.Context, storyID string) (domain.Story, error) {
 	collection := sr.database.Collection(sr.collection)
 
