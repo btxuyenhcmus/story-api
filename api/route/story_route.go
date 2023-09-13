@@ -20,5 +20,5 @@ func NewStoryRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Database
 	}
 	group.GET("/stories", sc.FetchList)
 	group.POST("/story", sc.Create)
-	group.GET("/story/:id", sc.FetchByStoryID)
+	group.GET("/story/:id", sc.FetchByStoryId)
 }

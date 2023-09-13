@@ -66,7 +66,7 @@ func (sc *StoryController) FetchList(c *gin.Context) {
 	})
 }
 
-func (sc *StoryController) FetchByStoryID(c *gin.Context) {
+func (sc *StoryController) FetchByStoryId(c *gin.Context) {
 	storyID := c.Param("id")
 	story, err := sc.StoryUseCase.GetStoryById(c, storyID)
 	if err != nil {
