@@ -18,8 +18,13 @@ func NewChapterRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Databa
 	cc := &controller.ChapterController{
 		ChapterUseCase: usecase.NewChapterUseCase(cr, timeout),
 	}
+
+	// Final version router
 	group.POST("/story/:id/chapter", cc.Create)
 	group.GET("/story/:id/chapters", cc.FetchByStoryId)
 	group.GET("/story/:id/download", cc.DownloadByStoryId)
 	group.GET("/chapter/:id", cc.FetchByChapterId)
+
+	// Version 1 router
+	group.GET("/v1/story/:id/download", cc.DownloadByStoryIdV1)
 }

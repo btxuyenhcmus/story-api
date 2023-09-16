@@ -2,8 +2,10 @@ package controller
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/readtruyen/go-novelstory-api/crawler"
 	"github.com/readtruyen/go-novelstory-api/domain"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -83,6 +85,30 @@ func (cc *ChapterController) DownloadByStoryId(c *gin.Context) {
 		Message: "Get list chapter of story successfully",
 		Data:    chapters,
 	})
+}
+
+func (cc *ChapterController) DownloadByStoryIdV1(c *gin.Context) {
+	storyStr := c.Param("id")
+	pageStr := c.Query("page")
+
+	storyID, err := strconv.Atoi(storyStr)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page <= 0 {
+		page = 1
+	}
+
+	response, err := crawler.DownloadChapter(storyID, page)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
 }
 
 func (cc *ChapterController) FetchByChapterId(c *gin.Context) {
