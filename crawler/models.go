@@ -30,10 +30,30 @@ type CrawlData struct {
 	Content     string `json:"content"`
 }
 
+type CrawlDataList struct {
+	Id            int    `json:"id"`
+	Title         string `json:"title"`
+	Image         string `json:"image"`
+	IsFull        bool   `json:"is_full"`
+	Time          string `json:"time"`
+	Author        string `json:"author"`
+	Categories    string `json:"categories"`
+	CategoryIds   string `json:"category_ids"`
+	TotalChapters int    `json:"total_chapters"`
+}
+
 type CrawlDetail struct {
 	Status     string      `json:"status"`
 	Message    string      `json:"message"`
 	StatusCode int         `json:"status_code"`
 	Meta       CrawlMeta   `json:"meta"`
 	Data       []CrawlData `json:"data"`
+}
+
+type CrawlList struct {
+	Status     string          `json:"status"`
+	Message    string          `json:"message"`
+	StatusCode int             `json:"status_code"`
+	Meta       CrawlMeta       `json:"meta"`
+	Data       []CrawlDataList `json:"data"`
 }

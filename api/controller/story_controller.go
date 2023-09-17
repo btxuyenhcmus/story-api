@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/readtruyen/go-novelstory-api/crawler"
 	"github.com/readtruyen/go-novelstory-api/domain"
 
 	"github.com/gin-gonic/gin"
@@ -46,7 +47,7 @@ func (sc *StoryController) FetchList(c *gin.Context) {
 	}
 
 	perPage, err := strconv.Atoi(perPageStr)
-	if err != nil || page <= 0 || page >= 100 {
+	if err != nil || perPage <= 0 || perPage >= 100 {
 		perPage = 10
 	}
 
@@ -64,6 +65,24 @@ func (sc *StoryController) FetchList(c *gin.Context) {
 			Pagination: pagination,
 		},
 	})
+}
+
+func (sc *StoryController) FetchListV1(c *gin.Context) {
+	typeStr := c.Query("type")
+	pageStr := c.Query("page")
+
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page <= 0 {
+		page = 1
+	}
+
+	response, err := crawler.GetStoriesPagination(typeStr, page)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
 }
 
 func (sc *StoryController) FetchByStoryId(c *gin.Context) {

@@ -18,7 +18,12 @@ func NewStoryRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Database
 	sc := &controller.StoryController{
 		StoryUseCase: usecase.NewStoryUseCase(sr, timeout),
 	}
+
+	// Final version router
 	group.GET("/stories", sc.FetchList)
 	group.POST("/story", sc.Create)
 	group.GET("/story/:id", sc.FetchByStoryId)
+
+	// Version 1 router
+	group.GET("/v1/stories", sc.FetchListV1)
 }
