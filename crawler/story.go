@@ -3,7 +3,7 @@ package crawler
 import "encoding/json"
 
 func GetStoriesPagination(typeStr string, page int) (CrawlList, error) {
-	req, err := GetRequestList(typeStr, page)
+	req, err := AllStory(typeStr, page)
 	if err != nil {
 		return CrawlList{}, err
 	}
@@ -17,4 +17,19 @@ func GetStoriesPagination(typeStr string, page int) (CrawlList, error) {
 	crawlList.Meta.Pagination.Links.Next = ""
 
 	return crawlList, nil
+}
+
+func GetStoryDetail(storyID int) (CrawlStoryData, error) {
+	req, err := DetailStory(storyID)
+	if err != nil {
+		return CrawlStoryData{}, err
+	}
+
+	var crawlStoryData CrawlStoryData
+	err = json.Unmarshal(req, &crawlStoryData)
+	if err != nil {
+		return CrawlStoryData{}, err
+	}
+
+	return crawlStoryData, nil
 }

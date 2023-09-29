@@ -99,3 +99,20 @@ func (sc *StoryController) FetchByStoryId(c *gin.Context) {
 		Data:    story,
 	})
 }
+
+func (sc *StoryController) FetchByStoryIdV1(c *gin.Context) {
+	storyIdStr := c.Param("id")
+	storyID, err := strconv.Atoi(storyIdStr)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	response, err := crawler.GetStoryDetail(storyID)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
+}

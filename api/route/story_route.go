@@ -26,4 +26,5 @@ func NewStoryRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Database
 
 	// Version 1 router
 	group.GET("/v1/stories", sc.FetchListV1)
+	group.GET("/v1/story/:id", sc.FetchByStoryIdV1)
 }

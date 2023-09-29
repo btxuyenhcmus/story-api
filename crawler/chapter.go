@@ -3,7 +3,7 @@ package crawler
 import "encoding/json"
 
 func DownloadChapter(storyID int, page int) (CrawlDetail, error) {
-	req, err := GetRequestDetail(storyID, page)
+	req, err := DownloadStory(storyID, page)
 	if err != nil {
 		return CrawlDetail{}, err
 	}

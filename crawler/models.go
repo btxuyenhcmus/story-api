@@ -57,3 +57,24 @@ type CrawlList struct {
 	Meta       CrawlMeta       `json:"meta"`
 	Data       []CrawlDataList `json:"data"`
 }
+
+type CrawlStoryDetail struct {
+	Id          int    `json:"id"`
+	Title       string `json:"title"`
+	Image       string `json:"image"`
+	Author      string `json:"author"`
+	Source      string `json:"source"`
+	Liked       bool   `json:"liked"`
+	TotalLike   int    `json:"total_like"`
+	TotalView   string `json:"total_view"`
+	Categories  string `json:"categories"`
+	CategoryIds string `json:"category_ids"`
+	Description string `json:"description"`
+}
+
+type CrawlStoryData struct {
+	Status     string           `json:"status"`
+	Message    string           `json:"message"`
+	StatusCode int              `json:"status_code"`
+	Data       CrawlStoryDetail `json:"data"`
+}

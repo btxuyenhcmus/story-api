@@ -8,7 +8,7 @@ import (
 
 const HOST_TEMPLATE_URL string = "https://api.truyenfull.vn/v1/%s/%s"
 
-func GetRequestDetail(storyID int, page int) ([]byte, error) {
+func DownloadStory(storyID int, page int) ([]byte, error) {
 	param := fmt.Sprintf("download?page=%d", page)
 	path := fmt.Sprintf("story/detail/%d", storyID)
 	url := fmt.Sprintf(HOST_TEMPLATE_URL, path, param)
@@ -16,7 +16,14 @@ func GetRequestDetail(storyID int, page int) ([]byte, error) {
 	return getRequest(url)
 }
 
-func GetRequestList(typeStr string, page int) ([]byte, error) {
+func DetailStory(storyID int) ([]byte, error) {
+	param := fmt.Sprintf("detail/%d", storyID)
+	url := fmt.Sprintf(HOST_TEMPLATE_URL, "story", param)
+
+	return getRequest(url)
+}
+
+func AllStory(typeStr string, page int) ([]byte, error) {
 	param := fmt.Sprintf("all?type=%s&page=%d", typeStr, page)
 	url := fmt.Sprintf(HOST_TEMPLATE_URL, "story", param)
 	return getRequest(url)
