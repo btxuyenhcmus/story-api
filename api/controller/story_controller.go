@@ -116,3 +116,26 @@ func (sc *StoryController) FetchByStoryIdV1(c *gin.Context) {
 
 	c.JSON(http.StatusOK, response)
 }
+
+func (sc *StoryController) FetchRelatedByStoryIdV1(c *gin.Context) {
+	storyIdStr := c.Param("id")
+	pageStr := c.Query("page")
+	storyID, err := strconv.Atoi(storyIdStr)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page <= 0 {
+		page = 1
+	}
+
+	response, err := crawler.GetStoryRelatedPagination(storyID, page)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
+}

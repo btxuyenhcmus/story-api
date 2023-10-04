@@ -23,6 +23,13 @@ func DetailStory(storyID int) ([]byte, error) {
 	return getRequest(url)
 }
 
+func CategoryStory(category string, page int) ([]byte, error) {
+	param := fmt.Sprintf("cate?cate=%s&type=story_new&page=%d", category, page)
+	url := fmt.Sprintf(HOST_TEMPLATE_URL, "story", param)
+
+	return getRequest(url)
+}
+
 func AllStory(typeStr string, page int) ([]byte, error) {
 	param := fmt.Sprintf("all?type=%s&page=%d", typeStr, page)
 	url := fmt.Sprintf(HOST_TEMPLATE_URL, "story", param)
