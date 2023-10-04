@@ -77,6 +77,10 @@ func (sc *StoryController) FetchListV1(c *gin.Context) {
 	}
 
 	if typeStr == "story_full" {
+		typeStr = "story_full_update"
+	}
+
+	if typeStr == "story_hot" {
 		typeStr = "story_full_view"
 	}
 
