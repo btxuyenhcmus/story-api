@@ -76,6 +76,10 @@ func (sc *StoryController) FetchListV1(c *gin.Context) {
 		page = 1
 	}
 
+	if typeStr == "story_full" {
+		typeStr = "story_full_view"
+	}
+
 	response, err := crawler.GetStoriesPagination(typeStr, page)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
