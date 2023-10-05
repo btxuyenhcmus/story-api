@@ -2,36 +2,51 @@ package crawler
 
 import "encoding/json"
 
-func DownloadChapter(storyID int, page int) (CrawlDetail, error) {
+func DownloadChapter(storyID int, page int) (ResponseDownloadStory, error) {
 	req, err := DownloadStory(storyID, page)
 	if err != nil {
-		return CrawlDetail{}, err
+		return ResponseDownloadStory{}, err
 	}
 
-	var crawlDetail CrawlDetail
-	err = json.Unmarshal(req, &crawlDetail)
+	var respDownloadStory ResponseDownloadStory
+	err = json.Unmarshal(req, &respDownloadStory)
 	if err != nil {
-		return CrawlDetail{}, err
+		return ResponseDownloadStory{}, err
 	}
 
-	crawlDetail.Meta.Pagination.Links.Next = ""
+	respDownloadStory.Meta.Pagination.Links.Next = ""
 
-	return crawlDetail, nil
+	return respDownloadStory, nil
 }
 
-func FetchChapter(storyID int, page int) (CrawlListChapter, error) {
+func ListChapter(storyID int, page int) (ResponseListChapter, error) {
 	req, err := FetchStory(storyID, page)
 	if err != nil {
-		return CrawlListChapter{}, err
+		return ResponseListChapter{}, err
 	}
 
-	var crawlListChapter CrawlListChapter
-	err = json.Unmarshal(req, &crawlListChapter)
+	var respListChapter ResponseListChapter
+	err = json.Unmarshal(req, &respListChapter)
 	if err != nil {
-		return CrawlListChapter{}, err
+		return ResponseListChapter{}, err
 	}
 
-	crawlListChapter.Meta.Pagination.Links.Next = ""
+	respListChapter.Meta.Pagination.Links.Next = ""
 
-	return crawlListChapter, nil
+	return respListChapter, nil
+}
+
+func FetchChapter(chapterID int) (ResponseDetailChapter, error) {
+	req, err := DetailChapter(chapterID)
+	if err != nil {
+		return ResponseDetailChapter{}, err
+	}
+
+	var respDetailChapter ResponseDetailChapter
+	err = json.Unmarshal(req, &respDetailChapter)
+	if err != nil {
+		return ResponseDetailChapter{}, err
+	}
+
+	return respDetailChapter, nil
 }

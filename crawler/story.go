@@ -7,42 +7,42 @@ import (
 	"github.com/gosimple/slug"
 )
 
-func GetStoriesPagination(typeStr string, page int) (CrawlList, error) {
+func GetStoriesPagination(typeStr string, page int) (ResponseListStory, error) {
 	req, err := AllStory(typeStr, page)
 	if err != nil {
-		return CrawlList{}, err
+		return ResponseListStory{}, err
 	}
 
-	var crawlList CrawlList
-	err = json.Unmarshal(req, &crawlList)
+	var respListStory ResponseListStory
+	err = json.Unmarshal(req, &respListStory)
 	if err != nil {
-		return CrawlList{}, err
+		return ResponseListStory{}, err
 	}
 
-	crawlList.Meta.Pagination.Links.Next = ""
+	respListStory.Meta.Pagination.Links.Next = ""
 
-	return crawlList, nil
+	return respListStory, nil
 }
 
-func GetStoryDetail(storyID int) (CrawlStoryData, error) {
+func GetStoryDetail(storyID int) (ResponseDetailStory, error) {
 	req, err := DetailStory(storyID)
 	if err != nil {
-		return CrawlStoryData{}, err
+		return ResponseDetailStory{}, err
 	}
 
-	var crawlStoryData CrawlStoryData
-	err = json.Unmarshal(req, &crawlStoryData)
+	var respDetailStory ResponseDetailStory
+	err = json.Unmarshal(req, &respDetailStory)
 	if err != nil {
-		return CrawlStoryData{}, err
+		return ResponseDetailStory{}, err
 	}
 
-	return crawlStoryData, nil
+	return respDetailStory, nil
 }
 
-func GetStoryRelatedPagination(storyID int, page int) (CrawlList, error) {
+func GetStoryRelatedPagination(storyID int, page int) (ResponseListStory, error) {
 	crawlStoryData, err := GetStoryDetail(storyID)
 	if err != nil {
-		return CrawlList{}, err
+		return ResponseListStory{}, err
 	}
 
 	categories := strings.Split(crawlStoryData.Data.Categories, ",")
@@ -50,15 +50,15 @@ func GetStoryRelatedPagination(storyID int, page int) (CrawlList, error) {
 
 	req, err := CategoryStory(categorySlug, page)
 	if err != nil {
-		return CrawlList{}, err
+		return ResponseListStory{}, err
 	}
 
-	var crawlList CrawlList
-	err = json.Unmarshal(req, &crawlList)
+	var respListStory ResponseListStory
+	err = json.Unmarshal(req, &respListStory)
 	if err != nil {
-		return CrawlList{}, err
+		return ResponseListStory{}, err
 	}
 
-	crawlList.Meta.Pagination.Links.Next = ""
-	return crawlList, nil
+	respListStory.Meta.Pagination.Links.Next = ""
+	return respListStory, nil
 }

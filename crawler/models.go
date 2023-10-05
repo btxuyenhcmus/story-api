@@ -1,5 +1,6 @@
 package crawler
 
+// Meta Data
 type CrawlLinks struct {
 	Next string `json:"next"`
 }
@@ -17,20 +18,28 @@ type CrawlMeta struct {
 	Pagination CrawlPagination `json:"pagination"`
 }
 
-type CrawlData struct {
-	ChapterId   int    `json:"chapter_id"`
+// Chapter Data
+type CrawlShortChapter struct {
+	Id    int    `json:"id"`
+	Title string `json:"title"`
+	Date  string `json:"date"`
+}
+
+type CrawlLargeChapter struct {
+	Id          int    `json:"chapter_id"`
 	StoryId     int    `json:"story_id"`
 	StoryName   string `json:"story_name"`
-	ChapterName string `json:"chapter_name"`
-	ChapterNext int    `json:"chapter_next"`
-	ChapterPrev int    `json:"chapter_prev"`
+	Name        string `json:"chapter_name"`
+	Next        int    `json:"chapter_next"`
+	Prev        int    `json:"chapter_prev"`
 	HasImage    bool   `json:"has_image"`
 	Position    int    `json:"position"`
 	CurrentPage int    `json:"current_page"`
 	Content     string `json:"content"`
 }
 
-type CrawlDataList struct {
+// Story Data
+type CrawlShortStory struct {
 	Id            int    `json:"id"`
 	Title         string `json:"title"`
 	Image         string `json:"image"`
@@ -42,29 +51,7 @@ type CrawlDataList struct {
 	TotalChapters int    `json:"total_chapters"`
 }
 
-type CrawlShortChapter struct {
-	Id    int    `json:"id"`
-	Title string `json:"title"`
-	Date  string `json:"date"`
-}
-
-type CrawlDetail struct {
-	Status     string      `json:"status"`
-	Message    string      `json:"message"`
-	StatusCode int         `json:"status_code"`
-	Meta       CrawlMeta   `json:"meta"`
-	Data       []CrawlData `json:"data"`
-}
-
-type CrawlList struct {
-	Status     string          `json:"status"`
-	Message    string          `json:"message"`
-	StatusCode int             `json:"status_code"`
-	Meta       CrawlMeta       `json:"meta"`
-	Data       []CrawlDataList `json:"data"`
-}
-
-type CrawlStoryDetail struct {
+type CrawlLargeStory struct {
 	Id          int    `json:"id"`
 	Title       string `json:"title"`
 	Image       string `json:"image"`
@@ -78,17 +65,41 @@ type CrawlStoryDetail struct {
 	Description string `json:"description"`
 }
 
-type CrawlStoryData struct {
-	Status     string           `json:"status"`
-	Message    string           `json:"message"`
-	StatusCode int              `json:"status_code"`
-	Data       CrawlStoryDetail `json:"data"`
-}
-
-type CrawlListChapter struct {
+// Response Data
+type ResponseListChapter struct {
 	Status     string              `json:"status"`
 	Message    string              `json:"message"`
 	StatusCode int                 `json:"status_code"`
 	Meta       CrawlMeta           `json:"meta"`
 	Data       []CrawlShortChapter `json:"data"`
+}
+
+type ResponseDetailChapter struct {
+	Status     string            `json:"status"`
+	Message    string            `json:"message"`
+	StatusCode int               `json:"status_code"`
+	Data       CrawlLargeChapter `json:"data"`
+}
+
+type ResponseListStory struct {
+	Status     string            `json:"status"`
+	Message    string            `json:"message"`
+	StatusCode int               `json:"status_code"`
+	Meta       CrawlMeta         `json:"meta"`
+	Data       []CrawlShortStory `json:"data"`
+}
+
+type ResponseDownloadStory struct {
+	Status     string              `json:"status"`
+	Message    string              `json:"message"`
+	StatusCode int                 `json:"status_code"`
+	Meta       CrawlMeta           `json:"meta"`
+	Data       []CrawlLargeChapter `json:"data"`
+}
+
+type ResponseDetailStory struct {
+	Status     string          `json:"status"`
+	Message    string          `json:"message"`
+	StatusCode int             `json:"status_code"`
+	Data       CrawlLargeStory `json:"data"`
 }
