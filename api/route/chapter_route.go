@@ -27,4 +27,5 @@ func NewChapterRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Databa
 
 	// Version 1 router
 	group.GET("/v1/story/:id/download", cc.DownloadByStoryIdV1)
+	group.GET("/v1/story/:id/chapters", cc.FetchByStoryIdV1)
 }

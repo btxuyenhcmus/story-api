@@ -42,6 +42,12 @@ type CrawlDataList struct {
 	TotalChapters int    `json:"total_chapters"`
 }
 
+type CrawlShortChapter struct {
+	Id    int    `json:"id"`
+	Title string `json:"title"`
+	Date  string `json:"date"`
+}
+
 type CrawlDetail struct {
 	Status     string      `json:"status"`
 	Message    string      `json:"message"`
@@ -77,4 +83,12 @@ type CrawlStoryData struct {
 	Message    string           `json:"message"`
 	StatusCode int              `json:"status_code"`
 	Data       CrawlStoryDetail `json:"data"`
+}
+
+type CrawlListChapter struct {
+	Status     string              `json:"status"`
+	Message    string              `json:"message"`
+	StatusCode int                 `json:"status_code"`
+	Meta       CrawlMeta           `json:"meta"`
+	Data       []CrawlShortChapter `json:"data"`
 }

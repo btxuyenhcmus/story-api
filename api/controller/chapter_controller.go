@@ -72,6 +72,30 @@ func (cc *ChapterController) FetchByStoryId(c *gin.Context) {
 	})
 }
 
+func (cc *ChapterController) FetchByStoryIdV1(c *gin.Context) {
+	storyStr := c.Param("id")
+	pageStr := c.Query("page")
+
+	storyID, err := strconv.Atoi(storyStr)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page <= 0 {
+		page = 1
+	}
+
+	response, err := crawler.FetchChapter(storyID, page)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, domain.ErrorResponse{Message: err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, response)
+}
+
 func (cc *ChapterController) DownloadByStoryId(c *gin.Context) {
 	storyID := c.Param("id")
 	chapters, err := cc.ChapterUseCase.DownloadChapterByStoryId(c, storyID)

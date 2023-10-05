@@ -18,3 +18,20 @@ func DownloadChapter(storyID int, page int) (CrawlDetail, error) {
 
 	return crawlDetail, nil
 }
+
+func FetchChapter(storyID int, page int) (CrawlListChapter, error) {
+	req, err := FetchStory(storyID, page)
+	if err != nil {
+		return CrawlListChapter{}, err
+	}
+
+	var crawlListChapter CrawlListChapter
+	err = json.Unmarshal(req, &crawlListChapter)
+	if err != nil {
+		return CrawlListChapter{}, err
+	}
+
+	crawlListChapter.Meta.Pagination.Links.Next = ""
+
+	return crawlListChapter, nil
+}
