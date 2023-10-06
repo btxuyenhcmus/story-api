@@ -35,3 +35,21 @@ func JwtAuthMiddleware(secret string) gin.HandlerFunc {
 		c.Abort()
 	}
 }
+
+func JwtAssignAuthMiddleware(secret string) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		authHeader := c.Request.Header.Get("Authorization")
+		t := strings.Split(authHeader, " ")
+		if len(t) == 2 {
+			authToken := t[1]
+			authorized, _ := tokenutil.IsAuthorized(authToken, secret)
+			if authorized {
+				userID, err := tokenutil.ExtractIDFromToken(authToken, secret)
+				if err == nil {
+					c.Set("x-user-id", userID)
+				}
+			}
+		}
+		c.Next()
+	}
+}

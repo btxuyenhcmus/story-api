@@ -20,10 +20,17 @@ func Setup(env *bootstrap.Env, timeout time.Duration, db mongo.Database, gin *gi
 	NewChapterRouter(env, timeout, db, publicRouter)
 	NewCarouselRouter(env, timeout, db, publicRouter)
 
+	assignedRouter := gin.Group("")
+	// Middleware to assign AccessToken
+	assignedRouter.Use(middleware.JwtAssignAuthMiddleware(env.AccessTokenSecret))
+	NewUserStoryRouter(env, timeout, db, assignedRouter)
+
 	protectedRouter := gin.Group("")
 	// Middleware to verify AccessToken
 	protectedRouter.Use(middleware.JwtAuthMiddleware(env.AccessTokenSecret))
 	// All Private APIs
+	NewPrivateCarouselRouter(env, timeout, db, protectedRouter)
+	NewPrivateStoryRouter(env, timeout, db, protectedRouter)
 	NewProfileRouter(env, timeout, db, protectedRouter)
 	NewTaskRouter(env, timeout, db, protectedRouter)
 }

@@ -20,5 +20,13 @@ func NewCarouselRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Datab
 
 	// Final version router
 	group.GET("/carousels", cc.FetchList)
+}
+
+func NewPrivateCarouselRouter(env *bootstrap.Env, timeout time.Duration, db mongo.Database, group *gin.RouterGroup) {
+	cr := repository.NewCarouselRepository(db, domain.CollectionCarousel)
+	cc := &controller.CarouselController{
+		CarouselUseCase: usecase.NewCarouselUseCase(cr, timeout),
+	}
+
 	group.POST("/carousel", cc.Create)
 }
