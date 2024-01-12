@@ -1,8 +1,8 @@
-# Go Backend ReadTruyen API
+# Go Backend Story API
 
 A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authentication Middleware, Test, and Docker.
 
-![Go Backend ReadTruyen API](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-backend-clean-architecture.png?raw=true)
+![Go Backend Story API](https://github.com/btxuyenhcmus/story-api/blob/master/assets/go-backend-clean-architecture.png?raw=true)
 
 **You can use this project as a template to build your Backend project in the Go language on top of this project.**
 
@@ -14,7 +14,7 @@ A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authenti
 - Repository
 - Domain
 
-![Go Backend ReadTruyen API Diagram](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-backend-arch-diagram.png?raw=true)
+![Go Backend Story API Diagram](https://github.com/btxuyenhcmus/story-api/blob/master/assets/go-backend-arch-diagram.png?raw=true)
 
 ## Major Packages used in this project
 
@@ -29,17 +29,17 @@ A Go (Golang) Backend Clean Architecture project with Gin, MongoDB, JWT Authenti
 
 ### Public API Request Flow without JWT Authentication Middleware
 
-![Public API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-arch-public-api-request-flow.png?raw=true)
+![Public API Request Flow](https://github.com/btxuyenhcmus/story-api/blob/master/assets/go-arch-public-api-request-flow.png?raw=true)
 
 ### Private API Request Flow with JWT Authentication Middleware
 
 > JWT Authentication Middleware for Access Token Validation.
 
-![Private API Request Flow](https://github.com/readtruyen/go-novelstory-api/blob/master/assets/go-arch-private-api-request-flow.png?raw=true)
+![Private API Request Flow](https://github.com/btxuyenhcmus/story-api/blob/master/assets/go-arch-private-api-request-flow.png?raw=true)
 
 ### How to run this project?
 
-We can run this Go Backend ReadTruyen API project with or without Docker. Here, I am providing both ways to run this project.
+We can run this Go Backend Story API project with or without Docker. Here, I am providing both ways to run this project.
 
 - Clone this project
 
@@ -48,7 +48,7 @@ We can run this Go Backend ReadTruyen API project with or without Docker. Here, 
 cd your-workspace
 
 # Clone this project into your workspace
-git clone https://github.com/readtruyen/go-novelstory-api.git
+git clone https://github.com/btxuyenhcmus/story-api.git
 
 # Move to the project root directory
 cd go-novelstory-api
@@ -150,7 +150,7 @@ Whenever you make changes in the interfaces of these use-cases, repositories, or
     └── task_usecase_test.go
 ```
 
-### API documentation of Go Backend ReadTruyen API
+### API documentation of Go Backend Story API
 
 ### Example API Request and Response
 
@@ -273,4 +273,4 @@ Whenever you make changes in the interfaces of these use-cases, repositories, or
 
 ### License
 
-### Contributing to Go Backend ReadTruyen API
+### Contributing to Go Backend Story API
